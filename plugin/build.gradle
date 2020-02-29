@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compile gradleApi()
+    compile 'com.android.tools.build:gradle:3.4.2'
+}
+
+ext {
+    GROUP = 'com.nymph.plugin'
+    POM_ARTIFACT_ID = 'buildplugin'
+    VERSION_NAME = '0.0.1'
+    JAR_PATH = "${buildDir}/libs/${name}.jar"
+}
+
+publishing {
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url = "/Users/lirui/maveRepos/localRepository"
+        }
+    }
+    publications {
+        custom(MavenPublication) {
+            groupId GROUP
+            artifactId POM_ARTIFACT_ID
+            version VERSION_NAME
+            artifact JAR_PATH
+        }
+    }
+}

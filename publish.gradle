@@ -1,0 +1,15 @@
+apply plugin: 'maven'
+
+//替换为Maven仓库地址
+def RELEASE_REPOSITORY_URL = 'file:///Users/lirui/maveRepos/localRepository'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = GROUP
+            pom.artifactId = POM_ARTIFACT_ID
+            pom.version = VERSION_NAME
+            repository(url: RELEASE_REPOSITORY_URL)
+        }
+    }
+}

@@ -1,0 +1,12 @@
+apply from: rootProject.file('./library.gradle')
+
+dependencies {
+}
+
+ext {
+    GROUP = 'com.nymph.module'
+    POM_ARTIFACT_ID = 'nymph'
+    VERSION_NAME = '0.0.1'
+}
+
+apply from: rootProject.file('./publish.gradle')

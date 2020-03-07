@@ -135,8 +135,8 @@ public final class ServiceManager {
         String factoryName = null;
         // try load from apt
         try {
-            Class<?> clz = Class.forName(name + "__sf_ly");
-            Field f = clz.getDeclaredField("FACTORY_CLASS_NAME");
+            Class<?> clz = Class.forName(name + "_sf_");
+            Field f = clz.getDeclaredField("SERVICE_FACTORY_CLASS_NAME");
             f.setAccessible(true);
 
             factoryName = (String) f.get(null);

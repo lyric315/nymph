@@ -1,2 +1,2 @@
-include ':app', ':plugin', ':module'
+include ':app', ':plugin', ':module', ':annotation'
 rootProject.name='nymph'
